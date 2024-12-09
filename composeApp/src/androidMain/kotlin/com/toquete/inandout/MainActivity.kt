@@ -3,6 +3,7 @@ package com.toquete.inandout
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 
@@ -31,4 +32,16 @@ fun PreviewApp() {
             )
         )
     )
+}
+
+@Preview
+@Composable
+private fun PreviewSummary() {
+    MaterialTheme {
+        Summary(
+            expenses = "R$ 25,00",
+            incomes = "R$ 0,00",
+            balance = "R$ 25,00"
+        )
+    }
 }

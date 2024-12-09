@@ -1,7 +1,9 @@
 package com.toquete.inandout
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
@@ -18,10 +20,18 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Preview
 fun App() {
     val viewModel: DefaultViewModel = viewModel()
-    val items by viewModel.state.collectAsStateWithLifecycle()
+    val state by viewModel.state.collectAsStateWithLifecycle()
 
     MaterialTheme {
-        ItemList(items)
+        Column(modifier = Modifier.fillMaxSize()) {
+            Summary(
+                modifier = Modifier.padding(16.dp),
+                expenses = state.expenses,
+                incomes = state.incomes,
+                balance = state.balance
+            )
+            ItemList(state.items)
+        }
     }
 }
 
