@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 fun PreviewApp() {
     ItemList(
         listOf(
@@ -42,6 +42,23 @@ private fun PreviewSummary() {
             expenses = "R$ 25,00",
             incomes = "R$ 0,00",
             balance = "R$ 25,00"
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun BalanceItemPreview() {
+    MaterialTheme {
+        BalanceItem(
+            item = Item(
+                date = "2021-01-01",
+                type = "Saída",
+                category = "Alimentação",
+                description = "Almoço no restaurante",
+                amount = 25.0,
+                status = "Pago"
+            )
         )
     }
 }

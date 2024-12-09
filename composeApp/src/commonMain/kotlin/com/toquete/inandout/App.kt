@@ -42,12 +42,7 @@ fun ItemList(items: List<Item>) {
         contentPadding = PaddingValues(16.dp)
     ) {
         items(items) { item ->
-            Text("Data: ${item.date}")
-            Text("Tipo: ${item.type}")
-            Text("Categoria: ${item.category}")
-            Text("Descrição: ${item.description}")
-            Text("Valor: ${item.amount}")
-            Text("Status: ${item.status}")
+            BalanceItem(item = item)
         }
     }
 }
