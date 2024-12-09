@@ -16,8 +16,19 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview
 @Composable
-fun AppAndroidPreview() {
-    App()
+@Preview
+fun PreviewApp() {
+    ItemList(
+        listOf(
+            Item(
+                date = "2021-01-01",
+                type = "Entrada",
+                category = "Alimentação",
+                description = "Almoço no restaurante",
+                amount = 25.0,
+                status = "Pago"
+            )
+        )
+    )
 }
