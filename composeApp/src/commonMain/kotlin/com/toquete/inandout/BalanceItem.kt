@@ -64,6 +64,15 @@ fun BalanceItem(
                 }
             }
         }
-        Text(transaction.amount.toString())
+        Column(horizontalAlignment = Alignment.End) {
+            Text(
+                transaction.date,
+                style = MaterialTheme.typography.caption
+            )
+            Text(
+                transaction.amount.toString(),
+                style = MaterialTheme.typography.body1
+            )
+        }
     }
 }

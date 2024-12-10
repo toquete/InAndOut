@@ -42,6 +42,7 @@ kotlin {
             implementation(libs.firebase.analytics)
             implementation(libs.firebase.firestore)
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.kotlinx.datetime)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

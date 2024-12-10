@@ -16,6 +16,7 @@ junit = "4.13.2"
 kotlin = "2.0.21"
 kotlinx-coroutines = "1.9.0"
 kotlinx-serialization = "1.7.3"
+kotlinx-datetime = "0.6.1"
 firebase-bom = "33.7.0"
 firebase-kotlin-sdk = "2.1.0"
 
@@ -35,6 +36,7 @@ androidx-lifecycle-viewmodel-compose = { group = "org.jetbrains.androidx.lifecyc
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
 firebase-analytics = { group = "dev.gitlive", name = "firebase-analytics", version.ref = "firebase-kotlin-sdk" }
 firebase-firestore = { group = "dev.gitlive", name = "firebase-firestore", version.ref = "firebase-kotlin-sdk" }
