@@ -13,17 +13,17 @@ class DefaultViewModel(
 
     private val numberFormat = NumberFormat.getCurrencyInstance()
 
-    val state = repository.getItems()
-        .map { items ->
-            val expenses = items.filter { it.type == "Saída" }
+    val state = repository.getTransactions()
+        .map { transactions ->
+            val expenses = transactions.filter { it.category.type == TransactionType.EXPENSE }
                 .sumOf { it.amount }
-            val incomes = items.filter { it.type == "Entrada" }
+            val incomes = transactions.filter { it.category.type == TransactionType.INCOME }
                 .sumOf { it.amount }
             val balance = incomes - expenses
 
             State(
                 isLoading = false,
-                items = items,
+                transactions = transactions,
                 expenses = numberFormat.format(expenses),
                 incomes = numberFormat.format(incomes),
                 balance = numberFormat.format(balance)

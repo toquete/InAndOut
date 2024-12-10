@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import java.math.BigDecimal
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,13 +23,17 @@ class MainActivity : ComponentActivity() {
 fun PreviewApp() {
     ItemList(
         listOf(
-            Item(
+            Transaction(
                 date = "2021-01-01",
-                type = "Entrada",
-                category = "Alimentação",
+                category = Category(
+                    id = "rent",
+                    name = "Alimentação",
+                    type = TransactionType.EXPENSE,
+                    isRecurrent = false
+                ),
                 description = "Almoço no restaurante",
-                amount = 25.0,
-                status = "Pago"
+                amount = BigDecimal("25.0"),
+                status = Status.PAID
             )
         )
     )
@@ -51,13 +56,17 @@ private fun PreviewSummary() {
 private fun BalanceItemPreview() {
     MaterialTheme {
         BalanceItem(
-            item = Item(
+            Transaction(
                 date = "2021-01-01",
-                type = "Saída",
-                category = "Alimentação",
+                category = Category(
+                    id = "rent",
+                    name = "Alimentação",
+                    type = TransactionType.EXPENSE,
+                    isRecurrent = false
+                ),
                 description = "Almoço no restaurante",
-                amount = 25.0,
-                status = "Pago"
+                amount = BigDecimal("25.0"),
+                status = Status.PAID
             )
         )
     }

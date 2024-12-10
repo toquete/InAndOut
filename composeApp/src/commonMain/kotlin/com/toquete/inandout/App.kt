@@ -30,19 +30,19 @@ fun App() {
                 incomes = state.incomes,
                 balance = state.balance
             )
-            ItemList(state.items)
+            ItemList(state.transactions)
         }
     }
 }
 
 @Composable
-fun ItemList(items: List<Item>) {
+fun ItemList(transactions: List<Transaction>) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp)
     ) {
-        items(items) { item ->
-            BalanceItem(item = item)
+        items(transactions) { transaction ->
+            BalanceItem(transaction = transaction)
         }
     }
 }

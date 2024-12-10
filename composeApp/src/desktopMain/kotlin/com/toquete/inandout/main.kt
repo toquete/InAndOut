@@ -9,6 +9,7 @@ import com.google.firebase.FirebasePlatform
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.FirebaseOptions
 import dev.gitlive.firebase.initialize
+import java.math.BigDecimal
 
 fun main() = application {
     FirebasePlatform.initializeFirebasePlatform(object : FirebasePlatform() {
@@ -51,13 +52,17 @@ fun main() = application {
 fun PreviewApp() {
     ItemList(
         listOf(
-            Item(
+            Transaction(
                 date = "2021-01-01",
-                type = "Entrada",
-                category = "Alimentação",
+                category = Category(
+                    id = "rent",
+                    name = "Alimentação",
+                    type = TransactionType.EXPENSE,
+                    isRecurrent = false
+                ),
                 description = "Almoço no restaurante",
-                amount = 25.0,
-                status = "Pago"
+                amount = BigDecimal("25.0"),
+                status = Status.PAID
             )
         )
     )

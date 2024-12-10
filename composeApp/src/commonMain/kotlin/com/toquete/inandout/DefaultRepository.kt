@@ -10,11 +10,11 @@ class DefaultRepository(
     private val firestore: FirebaseFirestore = Firebase.firestore
 ) {
 
-    fun getItems(): Flow<List<Item>> = firestore.collection("items")
+    fun getTransactions(): Flow<List<Transaction>> = firestore.collection("transactions")
         .snapshots
         .map { querySnapshot ->
             querySnapshot.documents.map {
-                it.data<Item>()
+                it.data<Transaction>()
             }
         }
 }

@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun BalanceItem(
-    item: Item,
+    transaction: Transaction,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -44,26 +44,26 @@ fun BalanceItem(
             Spacer(modifier = Modifier.width(8.dp))
             Column {
                 Text(
-                    item.category,
+                    transaction.category.name,
                     style = MaterialTheme.typography.caption
                 )
-                Text(item.description)
+                Text(transaction.description)
                 Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
                     Chip(onClick = {}) {
                         Text(
-                            item.type,
+                            transaction.category.type.type,
                             style = MaterialTheme.typography.overline
                         )
                     }
                     Chip(onClick = {}) {
                         Text(
-                            item.status,
+                            transaction.status.status,
                             style = MaterialTheme.typography.overline
                         )
                     }
                 }
             }
         }
-        Text(item.amount.toString())
+        Text(transaction.amount.toString())
     }
 }
