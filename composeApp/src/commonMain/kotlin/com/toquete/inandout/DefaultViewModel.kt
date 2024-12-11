@@ -5,10 +5,11 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import java.text.NumberFormat
 
 class DefaultViewModel(
-    repository: DefaultRepository = DefaultRepository()
+    private val repository: DefaultRepository = DefaultRepository()
 ): ViewModel() {
 
     private val numberFormat = NumberFormat.getCurrencyInstance()
@@ -34,4 +35,10 @@ class DefaultViewModel(
             started = SharingStarted.WhileSubscribed(5_000),
             initialValue = State()
         )
+
+    fun deleteTransaction(id: String) {
+        viewModelScope.launch {
+            repository.deleteTransaction(id)
+        }
+    }
 }

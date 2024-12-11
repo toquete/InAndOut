@@ -92,6 +92,7 @@ fun AddTransaction(onDismiss: () -> Unit) {
                                 status = inputState.selectedStatus
                             )
                             viewmodel.addTransaction(transaction)
+                            onDismiss()
                         }
                     ) {
                         Text("Add transaction")

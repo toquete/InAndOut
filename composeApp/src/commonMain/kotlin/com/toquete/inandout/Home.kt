@@ -42,13 +42,14 @@ fun HomeRoute(onAddTransactionButtonClick: () -> Unit) {
     )
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    Home(state, onAddTransactionButtonClick)
+    Home(state, onAddTransactionButtonClick, viewModel::deleteTransaction)
 }
 
 @Composable
 fun Home(
     state: State,
-    onAddTransactionButtonClick: () -> Unit
+    onAddTransactionButtonClick: () -> Unit,
+    onDeleteClick: (String) -> Unit
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.fillMaxSize()) {
@@ -58,7 +59,10 @@ fun Home(
                 incomes = state.incomes,
                 balance = state.balance
             )
-            ItemList(state.transactions)
+            ItemList(
+                state.transactions,
+                onDeleteClick
+            )
         }
         FloatingActionButton(
             onClick = onAddTransactionButtonClick,
@@ -70,13 +74,19 @@ fun Home(
 }
 
 @Composable
-fun ItemList(transactions: List<Transaction>) {
+fun ItemList(
+    transactions: List<Transaction>,
+    onDeleteClick: (String) -> Unit
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp)
     ) {
         items(transactions) { transaction ->
-            BalanceItem(transaction = transaction)
+            BalanceItem(
+                transaction = transaction,
+                onDeleteClick = onDeleteClick
+            )
         }
     }
 }

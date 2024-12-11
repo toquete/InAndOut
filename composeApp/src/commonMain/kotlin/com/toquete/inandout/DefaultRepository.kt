@@ -27,6 +27,16 @@ class DefaultRepository(
         }
 
     suspend fun addTransaction(transaction: Transaction) {
-        firestore.collection("transactions").add(transaction)
+        firestore.collection("transactions")
+            .document
+            .run {
+                set(transaction.copy(id = id))
+            }
+    }
+
+    suspend fun deleteTransaction(id: String) {
+        firestore.collection("transactions")
+            .document(id)
+            .delete()
     }
 }

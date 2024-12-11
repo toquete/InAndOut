@@ -64,6 +64,7 @@ fun PreviewApp() {
                 amount = BigDecimal("25.0"),
                 status = Status.PAID
             )
-        )
+        ),
+        onDeleteClick = {}
     )
 }

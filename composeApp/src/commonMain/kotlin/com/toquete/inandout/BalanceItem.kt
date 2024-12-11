@@ -12,9 +12,11 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Chip
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Done
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,6 +28,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun BalanceItem(
     transaction: Transaction,
+    onDeleteClick: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -72,6 +75,12 @@ fun BalanceItem(
             Text(
                 transaction.amount.toString(),
                 style = MaterialTheme.typography.body1
+            )
+        }
+        IconButton(onClick = { onDeleteClick(transaction.id) }) {
+            Icon(
+                imageVector = Icons.Default.Delete,
+                contentDescription = "Delete transaction"
             )
         }
     }

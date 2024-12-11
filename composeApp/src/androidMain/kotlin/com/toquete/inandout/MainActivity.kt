@@ -39,7 +39,8 @@ fun PreviewApp() {
                 )
             )
         ),
-        onAddTransactionButtonClick = {}
+        onAddTransactionButtonClick = {},
+        onDeleteClick = {}
     )
 }
 
@@ -71,7 +72,8 @@ private fun BalanceItemPreview() {
                 description = "Almoço no restaurante",
                 amount = BigDecimal("25.0"),
                 status = Status.PAID
-            )
+            ),
+            onDeleteClick = {}
         )
     }
 }

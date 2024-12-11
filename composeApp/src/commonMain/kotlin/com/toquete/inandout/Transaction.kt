@@ -12,6 +12,8 @@ import java.math.BigDecimal
 
 @Serializable
 data class Transaction(
+    @SerialName("id")
+    val id: String = "",
     @SerialName("date")
     val date: String,
     @SerialName("description")
