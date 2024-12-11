@@ -39,6 +39,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.androidx.navigation.compose)
             implementation(libs.firebase.analytics)
             implementation(libs.firebase.firestore)
             implementation(libs.kotlinx.serialization.json)

@@ -21,21 +21,25 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Preview(showBackground = true)
 fun PreviewApp() {
-    ItemList(
-        listOf(
-            Transaction(
-                date = "2021-01-01",
-                category = Category(
-                    id = "rent",
-                    name = "Alimentação",
-                    type = TransactionType.EXPENSE,
-                    isRecurrent = false
-                ),
-                description = "Almoço no restaurante",
-                amount = BigDecimal("25.0"),
-                status = Status.PAID
+    Home(
+        state = State(
+            isLoading = false,
+            transactions = listOf(
+                Transaction(
+                    date = "2021-01-01",
+                    category = Category(
+                        id = "rent",
+                        name = "Alimentação",
+                        type = TransactionType.EXPENSE,
+                        isRecurrent = false
+                    ),
+                    description = "Almoço no restaurante",
+                    amount = BigDecimal("25.0"),
+                    status = Status.PAID
+                )
             )
-        )
+        ),
+        onAddTransactionButtonClick = {}
     )
 }
 

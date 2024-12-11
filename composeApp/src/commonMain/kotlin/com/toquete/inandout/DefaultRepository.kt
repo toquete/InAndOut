@@ -17,4 +17,16 @@ class DefaultRepository(
                 it.data<Transaction>()
             }
         }
+
+    fun getCategories(): Flow<List<Category>> = firestore.collection("categories")
+        .snapshots
+        .map { querySnapshot ->
+            querySnapshot.documents.map {
+                it.data<Category>()
+            }
+        }
+
+    suspend fun addTransaction(transaction: Transaction) {
+        firestore.collection("transactions").add(transaction)
+    }
 }
